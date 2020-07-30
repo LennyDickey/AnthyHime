@@ -1,6 +1,8 @@
 require('dotenv').config()
 
 const express = require('express')
+var cors = require('cors')
+
 // const checkoutNodeJssdk = require('@paypal/checkout-server-sdk')
 const currency = require('currency.js')
 
@@ -10,6 +12,7 @@ const db = require('./lib/datab.js')
 
 const pf = new PrintfulClient(process.env.PRINTFUL_SECRET)
 const app = express()
+app.use(cors())
 
 let products = []
 let storeInfo = {}
