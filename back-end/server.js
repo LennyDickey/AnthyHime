@@ -7,7 +7,7 @@ const currency = require('currency.js')
 const PrintfulClient = require('./lib/printfulclient.js')
 // const payPalClient = require('./lib/paypal.js')
 const db = require('./lib/datab.js')
-console.log("process.env.PRINTFUL_SECRET - ", process.env.PRINTFUL_SECRET)
+
 const pf = new PrintfulClient(process.env.PRINTFUL_SECRET)
 const app = express()
 
@@ -110,7 +110,7 @@ app.use(express.json())
 //     }).error((_err, info) => console.error(info))
 // })
 
-app.get('/store/products', (_req, res) => res.json(products))
+app.get('/api/products', (_req, res) => res.json(products))
 
 /**
  * Fetches necessary country/state information from Printful
